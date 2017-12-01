@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="497.0" prefWidth="545.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.application.MyFrame">
+    <padding><Insets bottom="50" left="50" right="50" top="50" /></padding>
+    <children>
+        <Pane prefHeight="44.0" prefWidth="500.0">
+            <children>
+                <Label layoutX="7.0" layoutY="5.0" prefHeight="30.0" prefWidth="89.0" text="N° Ticket :" />
+                <TextField fx:id="ticket_number" disable="false" layoutX="88.0" layoutY="5.0" prefHeight="30.0" prefWidth="150.0" />
+
+                <Label fx:id="actiontargetChrono" layoutX="247.0" layoutY="5.0" prefHeight="30.0" text="0:00:00" />
+
+                <CheckBox fx:id="billed" disable="false" layoutX="476.0" layoutY="5.0" mnemonicParsing="false" prefHeight="30.0" selected="true" text="Billed" />
+
+            </children>
+        </Pane>
+
+        <Pane layoutX="7.0" layoutY="44.0" prefHeight="150.0" prefWidth="480.0">
+            <Label prefHeight="30.0" prefWidth="89.0" text="Description :" />
+            <TextArea fx:id="description" layoutX="88.0" prefHeight="30.0" prefWidth="440.0" />
+        </Pane>
+
+        <Pane layoutX="580.0" layoutY="5.0" prefHeight="150.0" prefWidth="80.0">
+            <Button fx:id="playStop" layoutX="0.0" layoutY="3.0" mnemonicParsing="false" onAction="#startMyTimer" text="Play" />
+            <Button fx:id="clearAll" disable="true" layoutX="0.0" layoutY="30.0" mnemonicParsing="false" onAction="#clearAllTicket" text="Clear" />
+            <Button fx:id="pushAll" disable="true" layoutX="0.0" layoutY="57.0" mnemonicParsing="false" onAction="#pushAllTicket" text="Push" />
+        </Pane>
+
+        <TableView fx:id="ticketTableView" layoutX="7.0" layoutY="95.0" prefHeight="200.0">
+            <columns>
+                <TableColumn fx:id="columnDate" minWidth="100.0" prefWidth="75.0" text="Ticket">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="ticket_number" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="150.0" prefWidth="75.0" text="Description">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="description" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="140.0" prefWidth="75.0" text="Start">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="start_time" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="140.0" prefWidth="140.0" text="End">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="end_time" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="70.0" prefWidth="50.0" text="Duration">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="duration" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="50.0" prefWidth="50.0" text="Billed ?">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="billed" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
